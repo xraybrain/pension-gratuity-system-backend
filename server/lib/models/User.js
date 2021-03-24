@@ -26,7 +26,7 @@ exports.User = class User {
 
 exports.createUser = (formData = {}) => {
   let imageUrl;
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production' && formData.fileName) {
     imageUrl = formData.fileName;
   } else if (formData.fileName) {
     imageUrl = '/assets/uploads/' + formData.fileName;
